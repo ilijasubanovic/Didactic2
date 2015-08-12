@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg4"
+    android:orientation="horizontal" >
+<!--    android:background="#ABABAB"-->
+    
+    <ImageView
+        android:id="@+id/ImageView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_launcher" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" >
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/ImageView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/ImageView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ImageResult"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/ImageLife1"
+        android:background="@drawable/back"        
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/cherry" />
+
+    <ImageView
+        android:id="@+id/ImageLife2"
+        android:background="@drawable/back"       
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/ImageLife1"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/cherry" />
+
+    <ImageView
+        android:id="@+id/ImageLife3"
+        android:background="@drawable/back"       
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/ImageLife2"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/cherry" />
+	<ImageView
+        android:id="@+id/ImageLife4"
+        android:background="@drawable/back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/ImageLife3"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/cherry" />    
+
+
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:max="5000"
+        android:progress="1"
+        android:layout_below="@+id/ImageView04"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/TextLevelValue"
+        android:background="@drawable/back"        
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="@string/LevelValue"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/TextLevelTitle"
+        android:background="@drawable/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextLevelValue"
+        android:layout_alignLeft="@+id/TextLevelValue"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="@string/LevelTitle"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/score"
+        android:background="@drawable/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextLevelTitle"
+        android:layout_alignLeft="@+id/TextLevelTitle"
+        android:layout_alignParentRight="true"
+        android:text=" "
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/scoreTitle"
+        android:background="@drawable/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/score"
+        android:layout_alignLeft="@+id/score"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="@string/scoreTitle"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/notificationBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressBar1"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFF00"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

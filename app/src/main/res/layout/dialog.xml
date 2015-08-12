@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginLeft="1dp"
+    android:layout_marginRight="1dp" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewOnlineScore"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewH1"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="No." />
+
+        <TextView
+            android:id="@+id/textViewR11"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="1." />
+
+        <TextView
+            android:id="@+id/textViewR21"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="2." />
+
+        <TextView
+            android:id="@+id/textViewR31"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="3." />
+
+        <TextView
+            android:id="@+id/textViewR41"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="4." />
+
+        <TextView
+            android:id="@+id/textViewR51"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="5." />
+
+        <TextView
+            android:id="@+id/textViewR61"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="6." />
+
+        <TextView
+            android:id="@+id/textViewR71"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="7." />
+
+        <TextView
+            android:id="@+id/textViewR81"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="8." />
+
+        <TextView
+            android:id="@+id/textViewR91"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="9." />
+
+        <TextView
+            android:id="@+id/textViewR101"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="10." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/linearLayout1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewH2"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="NORMAL" />
+
+        <TextView
+            android:id="@+id/textViewR12"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR22"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR32"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR42"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR52"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR62"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR72"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR82"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR92"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR102"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/linearLayout2"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewH3"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="SPEED" />
+
+        <TextView
+            android:id="@+id/textViewR13"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR23"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR33"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR43"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR53"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR63"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR73"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR83"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR93"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textViewR103"
+            style="@style/HS.TextAppearance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="." />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/dialogButtonClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/linearLayout2"
+        android:background="@drawable/button_main"
+        android:text="Close" />
+
+    <Button
+        android:id="@+id/dialogButtonCheckOnline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/dialogButtonClose"
+        android:background="@drawable/button_main"
+        android:text="Check Online" />
+
+    <TextView
+        android:id="@+id/textViewOnlineScore"
+        style="@style/HS.TextAppearance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/dialogButtonClose"
+        android:layout_alignParentLeft="true"
+        android:text="" />
+
+</RelativeLayout>
