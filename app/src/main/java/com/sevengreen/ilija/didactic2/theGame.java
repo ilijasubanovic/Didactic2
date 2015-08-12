@@ -20,6 +20,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -50,7 +51,7 @@ public class theGame extends Activity {
 
         Intent thisGame = getIntent();
         String gameType = thisGame.getStringExtra("gameType"); // will return "speed" or "classic"
-
+        Log.e("B!", "Kigra ");
         //declare
         if(gameType.equals("classic"))
             TIMEOUT = 5000;

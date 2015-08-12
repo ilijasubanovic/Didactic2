@@ -18,7 +18,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
-                <action android:name="scom.sevengreen.ilija.didactic2.theGame" />
+                <action android:name="com.sevengreen.ilija.didactic2.theGame" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

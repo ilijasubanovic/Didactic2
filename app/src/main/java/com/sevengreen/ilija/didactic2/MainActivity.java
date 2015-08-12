@@ -240,25 +240,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-    }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-
-        //declare preferences used for high scores and user name
-        final SharedPreferences prefs = this.getSharedPreferences("classicPrefsKey", Context.MODE_PRIVATE);
-        final SharedPreferences prefsSpeed = this.getSharedPreferences("speedPrefsKey", Context.MODE_PRIVATE);
         final Intent newGame = new Intent("com.sevengreen.ilija.didactic2.theGame");
-
-        type = Typeface.createFromAsset(getAssets(),"playtime.otf");
-        highScoreText = Typeface.createFromAsset(getAssets(),"play_a.ttf");
-
-        userDeviceId = Secure.getString(getBaseContext().getContentResolver(), Secure.ANDROID_ID);
 
         //button start normal game
         Button game = (Button) findViewById(R.id.button1);
@@ -266,6 +248,7 @@ public class MainActivity extends Activity {
         game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e("A!","K   L   I   K  ");
                 newGame.putExtra("gameType", "classic");
                 startActivity(newGame);
             }
@@ -280,6 +263,26 @@ public class MainActivity extends Activity {
                 startActivity(newGame);
             }
         });
+
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+
+        //declare preferences used for high scores and user name
+        final SharedPreferences prefs = this.getSharedPreferences("classicPrefsKey", Context.MODE_PRIVATE);
+        final SharedPreferences prefsSpeed = this.getSharedPreferences("speedPrefsKey", Context.MODE_PRIVATE);
+
+        type = Typeface.createFromAsset(getAssets(),"playtime.otf");
+        highScoreText = Typeface.createFromAsset(getAssets(),"play_a.ttf");
+
+        userDeviceId = Secure.getString(getBaseContext().getContentResolver(), Secure.ANDROID_ID);
+
+
 
         //button check high score list
         Button highScore = (Button) findViewById(R.id.button2);
