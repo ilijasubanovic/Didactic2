@@ -9,6 +9,8 @@
     android:background="@drawable/bkg4"
     tools:context=".MainActivity" >
 
+
+    
     <TextView
         android:id="@+id/notificationBar"
         android:layout_width="wrap_content"
