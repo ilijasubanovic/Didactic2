@@ -1,25 +1,13 @@
 package com.sevengreen.ilija.didactic2;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.util.ArrayList;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import android.net.ConnectivityManager;
@@ -32,7 +20,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
@@ -41,7 +28,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.provider.Settings.Secure;
 
 
@@ -83,21 +69,34 @@ public class MainActivity extends Activity {
             InputStream is=null;
             String result=null;
             String line=null;
-            ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            //ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+          //  ContentValues httpValues=new ContentValues();
 
-            nameValuePairs.add(new BasicNameValuePair("id",id));
+            //nameValuePairs.add(new BasicNameValuePair("id",id));
+            //httpValues.put("id",id);
+
             //if"get" only get current score position for user
             if(action.equalsIgnoreCase("get") && ntwkState)
             {
                 try
                 {
-                    HttpClient httpclient = new DefaultHttpClient();
+                   /* HttpClient httpclient = new DefaultHttpClient();
                     HttpPost httppost = new HttpPost("http://7green.vacau.com/didacticGame/db_get_position.php?u="+user);
                     httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                     HttpResponse response = httpclient.execute(httppost);
                     HttpEntity entity = response.getEntity();
                     is = entity.getContent();
-                    Log.e("pass 1", "connection success ");
+                    Log.e("pass 1", "connection success ");*/
+                    //new
+                    URL url = new URL("http://7green.vacau.com/didacticGame/db_get_position.php?u="+user);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("POST");
+
+                // read the response
+                    System.out.println("Response Code: " + conn.getResponseCode());
+                    is = new BufferedInputStream(conn.getInputStream());
+                    //String response1 = org.apache.http.m  in, "UTF-8");
+                    System.out.println(is.toString());
                 }
                 catch(Exception e)
                 {
@@ -144,7 +143,23 @@ public class MainActivity extends Activity {
             {
                 try
                 {
-                    HttpClient httpclient = new DefaultHttpClient();
+                    URL url=null;
+                    if(action.equalsIgnoreCase("update"))
+                        url = new URL("http://7green.vacau.com/didacticGame/db_insert.php?userId="+user+"&score="+score);
+                    else if (action.equalsIgnoreCase("updateSpeed"))
+                        url = new URL("http://7green.vacau.com/didacticGame/db_speed_insert.php?userId="+user+"&score="+score);
+
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("POST");
+
+// read the response
+                    System.out.println("Response Code: " + conn.getResponseCode());
+                    is = new BufferedInputStream(conn.getInputStream());
+                    String response = is.toString();
+                    System.out.println(response);
+
+
+       /*             HttpClient httpclient = new DefaultHttpClient();
                     HttpPost httppost = null;
                     if(action.equalsIgnoreCase("update"))
                         httppost = new HttpPost("http://7green.vacau.com/didacticGame/db_insert.php?userId="+user+"&score="+score);
@@ -157,7 +172,7 @@ public class MainActivity extends Activity {
                     is = entity.getContent();
                     Log.e("pass 1", "connection success ");
                     Log.e("username",user);
-                    Log.e("score",score);
+                    Log.e("score",score);*/
                 }
                 catch(Exception e)
                 {
@@ -241,6 +256,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Intent newGame = new Intent("com.sevengreen.ilija.didactic2.theGame");
+        //declare preferences used for high scores and user name
+        final SharedPreferences prefs = this.getSharedPreferences("classicPrefsKey", Context.MODE_PRIVATE);
+        final SharedPreferences prefsSpeed = this.getSharedPreferences("speedPrefsKey", Context.MODE_PRIVATE);
+
+        type = Typeface.createFromAsset(getAssets(),"playtime.otf");
+        highScoreText = Typeface.createFromAsset(getAssets(),"play_a.ttf");
+
+        userDeviceId = Secure.getString(getBaseContext().getContentResolver(), Secure.ANDROID_ID);
 
         //button start normal game
         Button game = (Button) findViewById(R.id.button1);
@@ -248,7 +271,6 @@ public class MainActivity extends Activity {
         game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("A!","K   L   I   K  ");
                 newGame.putExtra("gameType", "classic");
                 startActivity(newGame);
             }
@@ -263,26 +285,6 @@ public class MainActivity extends Activity {
                 startActivity(newGame);
             }
         });
-
-    }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-
-        //declare preferences used for high scores and user name
-        final SharedPreferences prefs = this.getSharedPreferences("classicPrefsKey", Context.MODE_PRIVATE);
-        final SharedPreferences prefsSpeed = this.getSharedPreferences("speedPrefsKey", Context.MODE_PRIVATE);
-
-        type = Typeface.createFromAsset(getAssets(),"playtime.otf");
-        highScoreText = Typeface.createFromAsset(getAssets(),"play_a.ttf");
-
-        userDeviceId = Secure.getString(getBaseContext().getContentResolver(), Secure.ANDROID_ID);
-
-
 
         //button check high score list
         Button highScore = (Button) findViewById(R.id.button2);
@@ -381,6 +383,19 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+
+
+
+
 
 
         return true;

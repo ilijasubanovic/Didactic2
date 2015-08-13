@@ -90,11 +90,13 @@
     <ProgressBar
         android:id="@+id/progressBar1"
         style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/custom_progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:max="5000"
+
         android:progress="1"
         android:layout_below="@+id/ImageView04"
         android:layout_marginTop="20dp" />

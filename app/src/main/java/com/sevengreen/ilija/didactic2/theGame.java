@@ -72,10 +72,13 @@ public class theGame extends Activity {
         //initiateTime();
 
 
+        Drawable draw=ContextCompat.getDrawable(getApplicationContext().getApplicationContext(), R.drawable.custom_progressbar);
 
         mProgressBar=(ProgressBar)findViewById(R.id.progressBar1);
-        mProgressBar.setMax((int )TIMEOUT);
-        mProgressBar.getProgressDrawable().setColorFilter(Color.RED, Mode.SRC_IN);
+        mProgressBar.setMax((int) TIMEOUT);
+        //mProgressBar.getProgressDrawable().setColorFilter(Color.RED, Mode.SRC_IN);
+        mProgressBar.setProgressDrawable(draw);
+
 
         result =  (ImageView) findViewById(R.id.ImageResult);
         life1 = (ImageView) findViewById(R.id.ImageLife1);
@@ -293,7 +296,7 @@ public class theGame extends Activity {
         else
             imageToInitialize.setIsCorrectAnswer(false);
         //initialize container content
-        imageToInitialize.setImageResource("i1_"+indexOfImageContent[imageIndex]);
+        imageToInitialize.setImageResource("i1_" + indexOfImageContent[imageIndex]);
     }
     //puts images of imageChoice containers to display layout
     public void setImageToView (final ImageChoice i) {
@@ -505,39 +508,41 @@ public class theGame extends Activity {
 
                         if(gameTypeClassic)
                         {
-                            if(elapsed>3000 && elapsed<4001)
+             /*               if(elapsed>3000 && elapsed<4001)
                                 //mProgressBar.setBackgroundColor(Color.YELLOW);
-                                mProgressBar.getProgressDrawable().setColorFilter(Color.YELLOW, Mode.SRC_IN);
+                                //mProgressBar.getProgressDrawable().setColorFilter(Color.YELLOW, Mode.SRC_IN);
                             else if(elapsed>4000)
                                 //mProgressBar.setBackgroundColor(Color.RED);
-                                mProgressBar.getProgressDrawable().setColorFilter(Color.RED, Mode.SRC_IN);
-                            else
-                                //mProgressBar.setBackgroundColor(Color.GRAY);
-                                mProgressBar.getProgressDrawable().setColorFilter(Color.GREEN, Mode.SRC_IN);
+                                //mProgressBar.getProgressDrawable().setColorFilter(Color.RED, Mode.SRC_IN);
+                            else {
+                            //    mProgressBar.getProgressDrawable().setColorFilter(Color.GREEN, Mode.SRC_IN);
+                                //mProgressBar.getProgressDrawable().setColorFilter(Color.MAGENTA, Mode.SRC_IN);
+                            }*/
+
                         }
                         else
                         {
                             if(10<level.getLevelNumber() && level.getLevelNumber()<20)
                             {
-                                mProgressBar.setBackgroundColor(Color.GREEN);
-                                mProgressBar.getProgressDrawable().setColorFilter(Color.RED, Mode.SRC_IN);
+                                //mProgressBar.setBackgroundColor(Color.GREEN);
+                                //mProgressBar.getProgressDrawable().setColorFilter(Color.RED, Mode.SRC_IN);
                                 TIMEOUT=3000;
                             }
                             else if(20<level.getLevelNumber() && level.getLevelNumber()<30)
                             {
-                                mProgressBar.setBackgroundColor(Color.YELLOW);
+                                //mProgressBar.setBackgroundColor(Color.YELLOW);
                                 TIMEOUT=2500;
                             }
                             else if(30<level.getLevelNumber() && level.getLevelNumber()<40)
                             {
-                                mProgressBar.setBackgroundColor(Color.RED);
-                                mProgressBar.getProgressDrawable().setColorFilter(Color.YELLOW, Mode.SRC_IN);
+                                //mProgressBar.setBackgroundColor(Color.RED);
+                                //mProgressBar.getProgressDrawable().setColorFilter(Color.YELLOW, Mode.SRC_IN);
                                 TIMEOUT=2000;
                             }
 
                             else if(40<level.getLevelNumber() && level.getLevelNumber()<50)
                             {
-                                mProgressBar.setBackgroundColor(Color.MAGENTA);
+                                //mProgressBar.setBackgroundColor(Color.MAGENTA);
                                 TIMEOUT=1500;
                             }
                             mProgressBar.setMax((int )TIMEOUT);
@@ -564,8 +569,8 @@ public class theGame extends Activity {
                             //remove life
                             removeLife();
                             // and reset progress bar color
-                            //mProgressBar.setBackgroundColor(Color.GRAY);
-                            mProgressBar.getProgressDrawable().setColorFilter(Color.GREEN, Mode.SRC_IN);
+                            ////mProgressBar.setBackgroundColor(Color.GRAY);
+                            //mProgressBar.getProgressDrawable().setColorFilter(Color.GREEN, Mode.SRC_IN);
 
                         }
                     });
