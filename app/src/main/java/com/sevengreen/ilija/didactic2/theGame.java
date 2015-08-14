@@ -26,6 +26,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class theGame extends Activity {
 
     ImageView result, life1, life2, life3, life4;
@@ -51,7 +55,8 @@ public class theGame extends Activity {
 
         Intent thisGame = getIntent();
         String gameType = thisGame.getStringExtra("gameType"); // will return "speed" or "classic"
-        Log.e("B!", "Kigra ");
+
+
         //declare
         if(gameType.equals("classic"))
             TIMEOUT = 5000;
@@ -62,6 +67,10 @@ public class theGame extends Activity {
         }
 
         setContentView(R.layout.the_game);
+        //adds
+        AdView mAdView = (AdView) findViewById(R.id.gameActivityBanner);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         lives = 3;
         textLevelValue = (TextView)findViewById(R.id.TextLevelValue);
         gameNotification = (TextView)findViewById(R.id.notificationBar);

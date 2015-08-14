@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bkg4"
@@ -45,42 +46,42 @@
 
     <ImageView
         android:id="@+id/ImageResult"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_above="@+id/gameActivityBanner"
         android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/ImageLife1"
         android:background="@drawable/back"        
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/lifeIndicatorWidth"
+        android:layout_height="@dimen/lifeIndicatorHeight"
+        android:layout_above="@+id/gameActivityBanner"
         android:layout_alignParentLeft="true"
         android:src="@drawable/cherry" />
 
     <ImageView
         android:id="@+id/ImageLife2"
-        android:background="@drawable/back"       
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:background="@drawable/back"
+        android:layout_width="@dimen/lifeIndicatorWidth"
+        android:layout_height="@dimen/lifeIndicatorHeight"
         android:layout_above="@+id/ImageLife1"
         android:layout_alignParentLeft="true"
         android:src="@drawable/cherry" />
 
     <ImageView
         android:id="@+id/ImageLife3"
-        android:background="@drawable/back"       
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:background="@drawable/back"
+        android:layout_width="@dimen/lifeIndicatorWidth"
+        android:layout_height="@dimen/lifeIndicatorHeight"
         android:layout_above="@+id/ImageLife2"
         android:layout_alignParentLeft="true"
         android:src="@drawable/cherry" />
 	<ImageView
         android:id="@+id/ImageLife4"
         android:background="@drawable/back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/lifeIndicatorWidth"
+        android:layout_height="@dimen/lifeIndicatorHeight"
         android:layout_above="@+id/ImageLife3"
         android:layout_alignParentLeft="true"
         android:src="@drawable/cherry" />    
@@ -106,7 +107,7 @@
         android:background="@drawable/back"        
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/gameActivityBanner"
         android:layout_alignParentRight="true"
         android:gravity="center"
         android:text="@string/LevelValue"
@@ -158,4 +159,13 @@
         android:textColor="#FFFF00"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/gameActivityBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id_test">
+    </com.google.android.gms.ads.AdView>
 </RelativeLayout>

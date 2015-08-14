@@ -29,6 +29,10 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.provider.Settings.Secure;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.AdListener;
 
 
 public class MainActivity extends Activity {
@@ -38,6 +42,7 @@ public class MainActivity extends Activity {
     boolean ntwkState=false;
     Typeface type;
     Typeface highScoreText;
+    InterstitialAd mInterstitialAd;
 
     //start of async task to update score online and to get current score position
     public class BackgroundAsyncTask extends
@@ -255,6 +260,34 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+       /* if(savedInstanceState == null) {
+            // Initialize Leadbolt SDK with your api key
+            AppTracker.startSession(getApplicationContext(),"kpbQSlvAeDHzuFq0VQIinfpINXaPp90N");
+        }
+        // cache Leadbolt Ad without showing it
+        AppTracker.loadModuleToCache(getApplicationContext(),"inapp");
+*/
+
+        //adds
+        AdView mAdView = (AdView) findViewById(R.id.mainActivityBanner);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+            }
+        });
+        requestNewInterstitial();
+
+
+
         final Intent newGame = new Intent("com.sevengreen.ilija.didactic2.theGame");
         //declare preferences used for high scores and user name
         final SharedPreferences prefs = this.getSharedPreferences("classicPrefsKey", Context.MODE_PRIVATE);
@@ -304,10 +337,11 @@ public class MainActivity extends Activity {
                 String topScoreSpeedUpdated[] = prefsSpeed.getString(Integer.toString(1), "").split("#");
 
                 //update / insert if not already done
-                Log.e("topScoreUpdated[0]",topScoreUpdated[0]);
+              /*  Log.e("topScoreUpdated[0]",topScoreUpdated[0]);
                 Log.e("topScoreUpdated[1]",topScoreUpdated[1]);
                 Log.e("topScoreSpeedUpdated[0]",topScoreSpeedUpdated[0]);
-                Log.e("topScoreSpeedUpdated[1]",topScoreSpeedUpdated[1]);
+                Log.e("topScoreSpeedUpdated[1]",topScoreSpeedUpdated[1]);*/
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! add check for index (if speed not played)
 
                 if(topScoreUpdated[1].equalsIgnoreCase("FALSE"))
                 {
@@ -325,6 +359,9 @@ public class MainActivity extends Activity {
                 dialogButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else
                         dialog.dismiss();
                     }
                 });
@@ -399,6 +436,13 @@ public class MainActivity extends Activity {
 
 
         return true;
+    }
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("0FD8485732E4C649D04FE57F12A5845D")
+                .build();
+
+        mInterstitialAd.loadAd(adRequest);
     }
 
 

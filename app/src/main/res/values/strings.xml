@@ -12,5 +12,6 @@
     <string name="EnterUserName">Your\nName</string>
     <string name="GameNotificationFirstLevel">Click on correct shape!</string>
     <string name="GameNotificationBonusLevel">Bonus Level for Bonus Life</string>
-       
+    <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
+
 </resources>
