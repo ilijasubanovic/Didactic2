@@ -107,6 +107,10 @@ public class theGame extends Activity {
         mainImage.getLayoutParams().height = tmpint;
         mainImage.getLayoutParams().width = tmpint;
         mainImage.requestLayout();
+        result =  (ImageView) findViewById(R.id.ImageResult);
+        result.getLayoutParams().height = tmpint;
+        result.getLayoutParams().width = tmpint;
+        result.requestLayout();
         tmpImageView = (ImageView) findViewById(R.id.ImageView01);
         tmpImageView.getLayoutParams().height = tmpint;
         tmpImageView.getLayoutParams().width = tmpint;
@@ -132,7 +136,7 @@ public class theGame extends Activity {
         mProgressBar.setProgressDrawable(draw);
 
 
-        result =  (ImageView) findViewById(R.id.ImageResult);
+
         life1 = (ImageView) findViewById(R.id.ImageLife1);
         life2 = (ImageView) findViewById(R.id.ImageLife2);
         life3 = (ImageView) findViewById(R.id.ImageLife3);
@@ -323,17 +327,17 @@ public class theGame extends Activity {
         {
             Random r = new Random();
             //content of first image container
-            indexOfImageContent[1] = r.nextInt(169 - 1) + 1;
+            indexOfImageContent[1] = r.nextInt(164 - 1) + 1;
             //content of second and third image from list of possible images n+1 (in first m levels; m=10)
             do{
-                indexOfImageContent[2] = r.nextInt(169 - 1) + 1;
+                indexOfImageContent[2] = r.nextInt(164 - 1) + 1;
                 indexOfImageContent[3] = indexOfImageContent[2];
             }while(indexOfImageContent[2]==indexOfImageContent[1]);
             //for levels higher then 5 all three choices are different
             if(level.getLevelNumber()>5)
             {
                 do{
-                    indexOfImageContent[3] = r.nextInt(169 - 1) + 1;
+                    indexOfImageContent[3] = r.nextInt(164 - 1) + 1;
                 }while(indexOfImageContent[3]==indexOfImageContent[1] || indexOfImageContent[3]==indexOfImageContent[2]);
             }
         }

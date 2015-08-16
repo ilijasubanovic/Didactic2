@@ -293,6 +293,9 @@ public class MainActivity extends Activity {
             editor = prefs.edit();
             editor.putString("gamesPlayed",Integer.toString(0));
             editor.apply();
+            editor = p.edit();
+            editor.putBoolean("FIRSTRUN",true);
+            editor.apply();
         }
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
@@ -314,7 +317,7 @@ public class MainActivity extends Activity {
 
         mInterstitialAd = new InterstitialAd(this);
         //test
-     //   mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        //mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         //real
         mInterstitialAd.setAdUnitId("ca-app-pub-8731252909086422/7857875598");
 
