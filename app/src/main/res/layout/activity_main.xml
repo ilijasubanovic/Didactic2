@@ -19,8 +19,9 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_weight=".25"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/notificationBar"
@@ -36,8 +37,9 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_weight=".25"
         android:layout_alignLeft="@+id/button1"
         android:layout_alignRight="@+id/button1"
         android:layout_below="@+id/button4"
@@ -71,11 +73,12 @@
      -->
           <Button
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
         android:layout_alignLeft="@+id/button1"
         android:layout_alignRight="@+id/button1"
-        android:layout_below="@+id/button1"
+              android:layout_weight=".25"
+              android:layout_below="@+id/button1"
         android:text="@string/NewGameSpeed" 
         android:background="@drawable/button_main"
         android:typeface="monospace"
@@ -93,6 +96,6 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id_test">
+        ads:adUnitId="@string/banner_main">
     </com.google.android.gms.ads.AdView>
 </RelativeLayout>

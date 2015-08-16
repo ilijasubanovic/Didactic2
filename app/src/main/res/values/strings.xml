@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Didactic Baby</string>
+    <string name="app_name">ReflexO</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world"></string>
     <string name="NewGame">New Game\nClasic</string>
@@ -13,5 +13,7 @@
     <string name="GameNotificationFirstLevel">Click on correct shape!</string>
     <string name="GameNotificationBonusLevel">Bonus Level for Bonus Life</string>
     <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_main">ca-app-pub-8731252909086422/9401987591</string>
+    <string name="banner_game">ca-app-pub-8731252909086422/1878720798</string>
 
 </resources>
