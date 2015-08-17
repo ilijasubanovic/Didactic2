@@ -278,8 +278,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean isFirstRun = p.getBoolean("FIRSTRUN", true);
-        if (isFirstRun)
+        boolean isFirstRun = p.getBoolean("FIRSTRUN", false);
+        if (!isFirstRun)
         {
             SharedPreferences prefs = this.getSharedPreferences("classicPrefsKey", Context.MODE_PRIVATE);
             Editor editor = prefs.edit();
@@ -317,9 +317,9 @@ public class MainActivity extends Activity {
 
         mInterstitialAd = new InterstitialAd(this);
         //test
-        //mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         //real
-        mInterstitialAd.setAdUnitId("ca-app-pub-8731252909086422/7857875598");
+        //mInterstitialAd.setAdUnitId("ca-app-pub-8731252909086422/7857875598");
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override

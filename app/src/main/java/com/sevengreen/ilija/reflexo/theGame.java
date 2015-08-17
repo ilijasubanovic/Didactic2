@@ -4,7 +4,6 @@ package com.sevengreen.ilija.reflexo;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.prefs.Preferences;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -34,10 +33,12 @@ import com.google.android.gms.ads.InterstitialAd;
 
 public class theGame extends Activity {
 
-    ImageView result, life1, life2, life3, life4, mainImage, tmpImageView;
+    ImageView life1, life2, life3, life4, mainImage, tmpImageView;
+    ImageView result;
+    float resultImageAlphaF=1f;
     int screenHeight, screenWidth;
     int lives, timerIsReset=0;
-    int resultImageAlpha=255;
+   // int resultImageAlpha=255;
     int[] indexOfImagePosition = new int[4];
     private int[] indexOfImageContent = new int[4];
     TextView textLevelValue, score, gameNotification;
@@ -83,9 +84,9 @@ public class theGame extends Activity {
         mAdView.loadAd(adRequest);
         mInterstitialAd = new InterstitialAd(this);
         //test
-        //mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         //real
-        mInterstitialAd.setAdUnitId("ca-app-pub-8731252909086422/3355453991");
+       // mInterstitialAd.setAdUnitId("ca-app-pub-8731252909086422/3355453991");
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
@@ -428,9 +429,10 @@ public class theGame extends Activity {
 
     public void answerCorrect () {
         //display correct check mark
-        result.setImageResource(getBaseContext().getResources().getIdentifier("correct","drawable","com.sevengreen.ilija.reflexo"));
+        result.setImageResource(getBaseContext().getResources().getIdentifier("correct", "drawable", "com.sevengreen.ilija.reflexo"));
         //set opacity of mark
-        resultImageAlpha = 250;
+        //resultImageAlpha = 250;
+        resultImageAlphaF=1f;
         //increase timer by one second for each correct answer
         if(gameTypeClassic)
             elapsed -= 1000;
@@ -452,9 +454,10 @@ public class theGame extends Activity {
 
     public void answerWrong () {
         //display wrong check mark
-        result.setImageResource(getBaseContext().getResources().getIdentifier("wrong","drawable","com.sevengreen.ilija.reflexo"));
+        result.setImageResource(getBaseContext().getResources().getIdentifier("wrong", "drawable", "com.sevengreen.ilija.reflexo"));
         //set opacity of mark
-        resultImageAlpha = 250;
+        //resultImageAlpha = 250;
+        resultImageAlphaF=1f;
         if(!level.getLevelBonus())
             removeLife();
         initializeNewLevel ();
@@ -608,13 +611,17 @@ public class theGame extends Activity {
 
 
                         //fade out correct/wrong mark
-                        if(resultImageAlpha>0)
-                            resultImageAlpha -= 2;
+                       // if(resultImageAlpha>0)
+                        //    resultImageAlpha -= 2;
+                        if(resultImageAlphaF>0.01f)
+                            resultImageAlphaF -= 0.01f;
                         //fade out correct/wrong mark
+                        //f=(float)(resultImageAlpha/250);
+                       // Log.e("XXXXXXX",Float.toString(resultImageAlphaF));
                         if(level.getLevelBonus())
-                            result.setImageAlpha(0);
+                            result.setAlpha(0f);
                         else
-                            result.setImageAlpha(resultImageAlpha);
+                            result.setAlpha(resultImageAlphaF);
                     }
                 });
                 //if time has expired
