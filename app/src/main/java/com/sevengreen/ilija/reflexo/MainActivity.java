@@ -36,11 +36,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.AdListener;
 
-//API Key kpbQSlvAeDHzuFq0VQIinfpINXaPp90N
-/*
-<script type="text/javascript" src="http://ad.leadbolt.net/show_app_ad.js?section_id=542959196"></script>
 
-*/
 public class MainActivity extends Activity {
 
     Dialog d;
@@ -69,11 +65,6 @@ public class MainActivity extends Activity {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             //connectivity state indicator
 
-//	  Log.e("cm.getNetworkInfo(0).getState()",cm.getNetworkInfo(0).getState().toString());
-//	  Log.e("cm.getNetworkInfo(1).getState()",cm.getNetworkInfo(1).getState().toString());
-//	  Log.e("NetworkInfo.State.CONNECTED",NetworkInfo.State.CONNECTED.toString());
-//	  Log.e("NetworkInfo.State.CONNECTING",NetworkInfo.State.CONNECTING.toString());
-
             //if connected
             if ( cm.getNetworkInfo(0).getState() == NetworkInfo.State.CONNECTED || cm.getNetworkInfo(1).getState() == NetworkInfo.State.CONNECTED )
                 ntwkState = true;
@@ -82,24 +73,13 @@ public class MainActivity extends Activity {
             InputStream is=null;
             String result=null;
             String line;
-            //ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-          //  ContentValues httpValues=new ContentValues();
-
-            //nameValuePairs.add(new BasicNameValuePair("id",id));
-            //httpValues.put("id",id);
 
             //if"get" only get current score position for user
             if(action.equalsIgnoreCase("get") && ntwkState)
             {
                 try
                 {
-                   /* HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost("http://7green.vacau.com/didacticGame/db_get_position.php?u="+user);
-                    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-                    HttpResponse response = httpclient.execute(httppost);
-                    HttpEntity entity = response.getEntity();
-                    is = entity.getContent();
-                    Log.e("pass 1", "connection success ");*/
+
                     //new
                     URL url = new URL("http://7green.vacau.com/didacticGame/db_get_position.php?u="+user);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -176,20 +156,7 @@ public class MainActivity extends Activity {
                     System.out.println(response);
 
 
-       /*             HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = null;
-                    if(action.equalsIgnoreCase("update"))
-                        httppost = new HttpPost("http://7green.vacau.com/didacticGame/db_insert.php?userId="+user+"&score="+score);
-                    else if(action.equalsIgnoreCase("updateSpeed"))
-                        httppost = new HttpPost("http://7green.vacau.com/didacticGame/db_speed_insert.php?userId="+user+"&score="+score);
 
-                    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-                    HttpResponse response = httpclient.execute(httppost);
-                    HttpEntity entity = response.getEntity();
-                    is = entity.getContent();
-                    Log.e("pass 1", "connection success ");
-                    Log.e("username",user);
-                    Log.e("score",score);*/
                 }
                 catch(Exception e)
                 {
@@ -240,6 +207,7 @@ public class MainActivity extends Activity {
 
                 TextView tx = (TextView) d.findViewById(R.id.textViewOnlineScore);
                 float tmpf = Integer.parseInt(rank);
+                //Log.e("1 RANK",rank);
                 tmpf /= Integer.parseInt(countAll);
                 tmpf *= 100;
                 int tmpInt = Math.round(tmpf);
@@ -302,14 +270,7 @@ public class MainActivity extends Activity {
         screenHeight = displaymetrics.heightPixels;
         screenWidth = displaymetrics.widthPixels;
 
-       /* if(savedInstanceState == null) {
-            // Initialize Leadbolt SDK with your api key
-            AppTracker.startSession(getApplicationContext(),"kpbQSlvAeDHzuFq0VQIinfpINXaPp90N");
-        }
-        // cache Leadbolt Ad without showing it
-        AppTracker.loadModuleToCache(getApplicationContext(),"inapp");
-*/
-
+  
         //adds
         AdView mAdView = (AdView) findViewById(R.id.mainActivityBanner);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -317,9 +278,9 @@ public class MainActivity extends Activity {
 
         mInterstitialAd = new InterstitialAd(this);
         //test
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        //mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         //real
-        //mInterstitialAd.setAdUnitId("ca-app-pub-8731252909086422/7857875598");
+        mInterstitialAd.setAdUnitId("ca-app-pub-8731252909086422/7857875598");
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
@@ -387,12 +348,6 @@ int tmpint = screenHeight;
                 String topScoreSpeedUpdated[] = prefsSpeed.getString(Integer.toString(1), "").split("#");
 
                 //update / insert if not already done
-              /*  Log.e("topScoreUpdated[0]",topScoreUpdated[0]);
-                Log.e("topScoreUpdated[1]",topScoreUpdated[1]);
-                Log.e("topScoreSpeedUpdated[0]",topScoreSpeedUpdated[0]);
-                Log.e("topScoreSpeedUpdated[1]",topScoreSpeedUpdated[1]);*/
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! add check for index (if speed not played)
-
                 if(topScoreUpdated[1].equalsIgnoreCase("FALSE"))
                 {
                     //Log.e("goToUpdate",topScoreUpdated[1]);

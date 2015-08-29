@@ -84,9 +84,9 @@ public class theGame extends Activity {
         mAdView.loadAd(adRequest);
         mInterstitialAd = new InterstitialAd(this);
         //test
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        //mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         //real
-       // mInterstitialAd.setAdUnitId("ca-app-pub-8731252909086422/3355453991");
+        mInterstitialAd.setAdUnitId("ca-app-pub-8731252909086422/3355453991");
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override

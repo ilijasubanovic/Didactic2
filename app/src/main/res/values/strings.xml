@@ -3,7 +3,7 @@
     <string name="app_name">ReflexO</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world"></string>
-    <string name="NewGame">New Game\nClasic</string>
+    <string name="NewGame">New Game\nClassic</string>
     <string name="NewGameSpeed">New Game\nSpeed Run</string>
     <string name="LevelTitle">L E V E L  </string>
     <string name="LevelValue">1</string>
